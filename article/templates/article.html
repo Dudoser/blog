@@ -6,10 +6,10 @@
 <p>{{ article.article_text }}</p>
 <hr>
 <div class="large-offset-1 large-8 columns">
-<p>Коментарии:</p>
-{% for comment in comments %}
-    <p>{{ comment.comments_text }}</p>
-{% endfor %}
+    <p>Коментарии:</p>
+    {% for comment in comments %}
+        <p>{{ comment.comments_text}}</p>
+    {% endfor %}
     <form action="/article/addcomment/{{ article.id }}/" method="post">
         {% csrf_token %}
         {{ form }}
