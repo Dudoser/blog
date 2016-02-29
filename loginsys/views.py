@@ -5,7 +5,7 @@ from django.core.context_processors import csrf
 
 
 
-def lodin(request):
+def login(request):
     args = {}
     args.update(csrf(request))
     if request.POST:
