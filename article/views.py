@@ -8,6 +8,7 @@ from article.models import Article, Comments
 from django.core.exceptions import ObjectDoesNotExist
 from forms import CommentForm
 from django.core.context_processors import csrf
+from django.contrib import auth
 
 
 
@@ -29,16 +30,18 @@ def template_three_simple(request):
     return render_to_response('myview.html', {'name': view})
 
 def articles(request):
-    return render_to_response('articles.html', {'articles': Article.objects.all()})
+    return render_to_response('articles.html', {'articles': Article.objects.all(), 'username': auth.get_user(request).username})
 
 def article (request, article_id):
     article = Article.objects.get(id=article_id)
     comments = Comments.objects.filter(comments_article_id=article_id)
     form = CommentForm()
+    username = auth.get_user(request).username
     return render(request, 'article.html', {
         'article': article,
         'comments': comments,
-        'form': form
+        'form': form,
+        'username': username
     })
 
 def addlike (request, article_id):

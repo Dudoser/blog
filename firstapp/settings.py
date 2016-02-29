@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'article',
+    'loginsys',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -59,7 +60,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['/home/vlad/djangoenv/bin/firstapp/templates',
-                 '/home/vlad/djangoenv/bin/firstapp/article/templates'],
+                 '/home/vlad/djangoenv/bin/firstapp/article/templates',
+                 '/home/vlad/djangoenv/bin/firstapp/loginsys/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
